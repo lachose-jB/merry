@@ -189,6 +189,13 @@
 import { ref, computed } from 'vue'
 import { useBookingStore } from '../stores/booking'
 
+interface Slot {
+  id: string
+  date: string
+  time: string
+  available: boolean
+}
+
 const bookingStore = useBookingStore()
 
 const form = ref({
@@ -200,7 +207,7 @@ const form = ref({
 
 const selectedDate = ref('')
 const selectedTime = ref('')
-const availableSlots = ref([])
+const availableSlots = ref<Slot[]>([])
 
 const availableDates = ['2025-01-20', '2025-01-21', '2025-01-22', '2025-01-23', '2025-01-24']
 
